@@ -14,9 +14,8 @@ module.exports = {
 		  	options['follow'] = 0
 		  }
 	  }
-    console.log('looking up whois for ' + domain);
+
 	  var result = {};
-	  try {
 		  var rawData = await lookup(domain, options || {});
 
 		  if ( typeof rawData === 'object' ) {
@@ -28,11 +27,6 @@ module.exports = {
 			  result = {...result, ...parseRawData(rawData, domain)};
 		  }
 		  return result;
-	  } catch(err){
-		  console.log(err);
-		  throw err;
-	  }
-
 
   }
 };
